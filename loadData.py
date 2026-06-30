@@ -3,5 +3,9 @@ import pandas as pd
 
 
 # pulling data from API putting it into csv for easier use
-data = pd.DataFrame(yf.download(["AAPL", "MSFT", "GOOGL"],period="1y"))
-data.to_csv("data/StockData.csv")
+# Stock = ["AAPL","GOOGL","MSFT"]
+# "1y"
+# DataPath = "data/StockData.csv"
+def UpdateLocalData(Stock,Time,DataPath):
+    data = pd.DataFrame(yf.download(Stock,period=Time))
+    data.to_csv(DataPath)
