@@ -1,6 +1,7 @@
 import dataPrepping as DP
 import loadData as LD
 import pandas as pd
+import numpy as np
 
 Stocks = [
     "AAPL", # Appel
@@ -19,6 +20,9 @@ Stocks = [
 dataPath = "data/StockData.csv"
 returns = DP.getReturns(dataPath)
 print(f"Description of data \n {returns.describe()}")
-print(f"Anual Middel value \n {returns.mean()*252}")
-print(f"returns: \n {returns.corr()}")
+print(f"Anual Mean value \n {returns.mean()*252 }")
+print(f"Anual Median value \n {returns.median()*252}")
+print(f"Anual STD value \n {returns.std()*np.sqrt(252)}")
+print(f"covariance Matrix: \n {returns.cov()}")
+print(f"correlation Matrix: \n {returns.corr()}")
 
